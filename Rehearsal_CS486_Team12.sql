@@ -19,12 +19,11 @@ CREATE TABLE Regions
 
 CREATE TABLE Songs
 (
-    ID INT,
+    ID INT PRIMARY KEY,
     name NVARCHAR(100),
     GID INT,
     streamCount INT CHECK(streamCount >= 0),
-    dateAdded DATE,
-    PRIMARY KEY(ID, GID)
+    dateAdded DATE
 );
 
 CREATE TABLE Singers
