@@ -33,23 +33,24 @@ namespace CS468
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridViewTopSong = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonHottest = new System.Windows.Forms.Button();
+            this.buttonLastest = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTopSong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.dataGridViewTopSong);
+            this.panel1.Controls.Add(this.dataGridView2);
+            this.panel1.Controls.Add(this.buttonLastest);
+            this.panel1.Controls.Add(this.buttonHottest);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 370);
@@ -85,16 +86,6 @@ namespace CS468
             this.panel3.Size = new System.Drawing.Size(1002, 310);
             this.panel3.TabIndex = 2;
             // 
-            // dataGridViewTopSong
-            // 
-            this.dataGridViewTopSong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTopSong.Location = new System.Drawing.Point(8, 57);
-            this.dataGridViewTopSong.Name = "dataGridViewTopSong";
-            this.dataGridViewTopSong.RowHeadersWidth = 62;
-            this.dataGridViewTopSong.RowTemplate.Height = 28;
-            this.dataGridViewTopSong.Size = new System.Drawing.Size(982, 213);
-            this.dataGridViewTopSong.TabIndex = 1;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -115,25 +106,50 @@ namespace CS468
             this.dataGridView1.Size = new System.Drawing.Size(983, 302);
             this.dataGridView1.TabIndex = 0;
             // 
-            // button1
+            // buttonHottest
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.button1.Location = new System.Drawing.Point(670, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 48);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "HOTTEST ";
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonHottest.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.buttonHottest.Location = new System.Drawing.Point(670, 6);
+            this.buttonHottest.Name = "buttonHottest";
+            this.buttonHottest.Size = new System.Drawing.Size(163, 48);
+            this.buttonHottest.TabIndex = 2;
+            this.buttonHottest.Text = "HOTTEST ";
+            this.buttonHottest.UseVisualStyleBackColor = false;
+            this.buttonHottest.Click += new System.EventHandler(this.buttonHottest_Click);
             // 
-            // button2
+            // buttonLastest
             // 
-            this.button2.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.button2.Location = new System.Drawing.Point(827, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(163, 48);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "LASTEST";
-            this.button2.UseVisualStyleBackColor = false;
+            this.buttonLastest.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.buttonLastest.Location = new System.Drawing.Point(827, 5);
+            this.buttonLastest.Name = "buttonLastest";
+            this.buttonLastest.Size = new System.Drawing.Size(163, 48);
+            this.buttonLastest.TabIndex = 3;
+            this.buttonLastest.Text = "LASTEST";
+            this.buttonLastest.UseVisualStyleBackColor = false;
+            this.buttonLastest.Click += new System.EventHandler(this.buttonLastest_Click);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1});
+            this.dataGridView2.Location = new System.Drawing.Point(8, 59);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 62;
+            this.dataGridView2.RowTemplate.Height = 28;
+            this.dataGridView2.Size = new System.Drawing.Size(982, 211);
+            this.dataGridView2.TabIndex = 4;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Add to playlist";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
             // 
             // Form1
             // 
@@ -153,8 +169,8 @@ namespace CS468
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTopSong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -165,11 +181,12 @@ namespace CS468
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridViewTopSong;
+        private System.Windows.Forms.Button buttonLastest;
+        private System.Windows.Forms.Button buttonHottest;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridViewButtonColumn Column1;
     }
 }
 

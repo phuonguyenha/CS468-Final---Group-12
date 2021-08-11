@@ -8,3 +8,4 @@ D:\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.csproj.GenerateResource.ca
 D:\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.csproj.CoreCompileInputs.cache
 D:\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.exe
 D:\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.pdb
+D:\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.FormAddToPLayList.resources
