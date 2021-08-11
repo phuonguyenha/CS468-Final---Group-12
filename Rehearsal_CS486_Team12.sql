@@ -22,12 +22,15 @@ CREATE TABLE Songs
     ID INT,
     name NVARCHAR(100),
     GID INT,
-    streamCount INT,
-    dateAdded DATE
+    streamCount INT CHECK(streamCount >= 0),
+    dateAdded DATE,
+    PRIMARY KEY(ID, GID)
 );
 
 CREATE TABLE Singers
 (
     ID INT PRIMARY KEY,
     name NVARCHAR(50)
-)
+);
+
+GO
