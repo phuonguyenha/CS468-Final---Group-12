@@ -1,0 +1,10 @@
+D:\CS468-Final---Group-12\CS468\CS468\bin\Debug\CS468.exe.config
+D:\CS468-Final---Group-12\CS468\CS468\bin\Debug\CS468.exe
+D:\CS468-Final---Group-12\CS468\CS468\bin\Debug\CS468.pdb
+D:\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.csprojAssemblyReference.cache
+D:\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.Form1.resources
+D:\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.Properties.Resources.resources
+D:\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.csproj.GenerateResource.cache
+D:\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.csproj.CoreCompileInputs.cache
+D:\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.exe
+D:\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.pdb

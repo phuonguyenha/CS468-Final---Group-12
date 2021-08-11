@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace CS468
 {
-    public partial class Form1 : Form
+    public partial class FormAddToPLayList : Form
     {
-        public Form1()
+        public FormAddToPLayList()
         {
             InitializeComponent();
         }
-
-        
     }
 }
