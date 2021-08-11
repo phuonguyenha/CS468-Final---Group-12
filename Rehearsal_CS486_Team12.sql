@@ -86,11 +86,6 @@ foreign key(SongID) references Songs(ID)
 
 GO
 
-<<<<<<< HEAD
-
--- USE MASTER
--- DROP DATABASE CS486_Team12_DB;
-=======
 USE MASTER
 DROP DATABASE CS486_Team12_DB;
 
@@ -98,7 +93,7 @@ DROP DATABASE CS486_Team12_DB;
 insert into Regions
 values 
 	(1,'Việt Nam'),
-	(2,'Âu Mỹ'),
+	(2,' u Mỹ'),
 	(3,'Châu Á'),
 	(4,'Khác');
 
@@ -164,8 +159,3 @@ values
 insert into SongofPlaylists
 values
 	(1,1);
-
-	đasa
-
-
->>>>>>> 444501689ea11da9566d7b0cc8417ebc62e65a9c
