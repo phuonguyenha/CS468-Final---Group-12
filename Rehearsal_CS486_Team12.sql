@@ -121,9 +121,45 @@ values
 	(19,'Thể loại khác',4),
 	(20,'Tui hát',4);
 
+
+CREATE TABLE Songs
+(
+    ID INT,
+    name NVARCHAR(100),
+    GID INT,
+    streamCount INT CHECK(streamCount >= 0),
+    dateAdded DATE,
+    PRIMARY KEY(ID, GID)
+);
+
+
 insert into Songs
 values
-	(
+	(1,'Nơi này có anh',1,200,'20/11/2011'),
+	(2,'Nắng ấm xa dần',1,200,'20/11/2011'),
+	(3,'Em của ngày hôm qua',1,200,'20/11/2011'),
+	(4,'TheNights',2,200,'20/11/2011');
+
+insert into Singers
+values
+	(1,'Sơn Tùng'),
+	(2,'No name');
+
+insert into SingerofSongs
+values
+	(1,1),
+	(2,1),
+	(3,1),
+	(4,2);
+
+insert into playlists
+values
+	(1,'My playlist')
+
+insert into SongofPlaylists
+values
+	(1,1);
+
 
 
 
