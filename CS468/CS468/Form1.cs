@@ -22,9 +22,19 @@ namespace CS468
 
         private Button activeButton1 = null; // hottest or lastest
         private Button activeButton2 = null; // genre
+
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            var senderGrid = (DataGridView)sender;
 
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                string songName = dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString();
+                FormAddToPLayList form = new FormAddToPLayList(songName);
+                form.Show();
+            }
+            
         }
 
         private void clearDataGridView()
@@ -52,7 +62,7 @@ namespace CS468
             clearDataGridView();
             try
             {
-                DataSet data = Program.ExecuteQuery(connection, query, connectionString, CommandType.StoredProcedure,  playlistid, genre);
+                DataSet data = Database.ExecuteQuery(connection, query, connectionString, CommandType.StoredProcedure,  playlistid, genre);
                 dataGridView2.DataSource = data.Tables[0];
             }
             catch (SqlException sqlex)
@@ -79,12 +89,13 @@ namespace CS468
             SqlParameter playlistid = new SqlParameter("@playlistid", SqlDbType.Int);
             playlistid.Value = 1;
             SqlParameter genre = new SqlParameter("@genre", SqlDbType.NVarChar);
+            genre.Value = "Pop";
             string query = "sp_selectMoiNhat";
 
             clearDataGridView();
             try
             {
-                DataSet data = Program.ExecuteQuery(connection, query, connectionString, CommandType.StoredProcedure, playlistid, genre);
+                DataSet data = Database.ExecuteQuery(connection, query, connectionString, CommandType.StoredProcedure, playlistid, genre);
                 dataGridView2.DataSource = data.Tables[0];
             }
             catch (SqlException sqlex)

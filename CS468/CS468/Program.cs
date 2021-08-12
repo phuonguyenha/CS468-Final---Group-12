@@ -23,6 +23,11 @@ namespace CS468
         }
 
        
+        
+    }
+
+    class Database
+    {
         public static DataSet ExecuteQuery(SqlConnection sqlConnection, string commandText, string connectionString,
         CommandType commandType, params SqlParameter[] parameters)
         {
@@ -58,7 +63,7 @@ namespace CS468
             }
         }
 
-        static public Int32 ExecuteNonQuery(String connectionString, String commandText,
+        public static Int32 ExecuteNonQuery(String connectionString, String commandText,
           CommandType commandType, params SqlParameter[] parameters)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -87,5 +92,4 @@ namespace CS468
         }
 
     }
-
 }
