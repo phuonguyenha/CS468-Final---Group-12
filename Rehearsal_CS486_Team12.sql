@@ -1,161 +1,165 @@
-﻿CREATE DATABASE CS486_Team12_DB
-GO
+Create database CS486_Team12_DB
+Go
 
 USE CS486_Team12_DB
 GO
 
-CREATE TABLE Genres
+Create table Songs
 (
-    ID INT PRIMARY KEY,
-    name NVARCHAR(50),
-    RID INT
+	songID int primary key,
+	songName NVARCHAR(50),
+	genre NVARCHAR(50),
+	region NVARCHAR(50),
+	dateAdded DATE,
+	streamCount INT,
 );
 
-CREATE TABLE Regions
+CREATE TABLE SingerSongs
 (
-    ID INT PRIMARY KEY,
-    name NVARCHAR(50),  
-);
+	singerID int, 
+	songID int,
+	primary key(singerID, songID)
+)
 
-CREATE TABLE Songs
+Create table Singers
 (
-    ID INT,
-    name NVARCHAR(100),
-    GID INT,
-    streamCount INT CHECK(streamCount >= 0),
-    dateAdded DATE,
-    PRIMARY KEY(ID, GID)
-);
+	singerID int primary key,
+	singerName nvarchar(50),
+)
 
-create table SingerofSongs
+CREATE TABLE SongsOfPlaylist
+(	
+	playlistID int,
+	songID int,
+	primary key(songID,playlistID),
+	favorites BIT check(Favorites = 0 OR Favorites = 1)
+)
+
+CREATE TABLE Playlists
 (
-	SongID int,
-	SingerID int
-	primary key (SongID,SingerID)
-);
+	playlistID int primary key,
+	userID int,
+	playlistName NVARCHAR(50)
+)
 
-ALTER TABLE SingerofSongs ADD
-CONSTRAINT FK_SingerofSongs_SongID
-FOREIGN KEY(SongID) REFERENCES Songs(ID);
-
-ALTER TABLE SingerofSongs ADD
-CONSTRAINT FK_SingerofSongs_Singers
-FOREIGN KEY(SongID) REFERENCES Singers(ID);
-
-
-
-CREATE TABLE Singers
+CREATE TABLE Users
 (
-    ID INT PRIMARY KEY,
-    name NVARCHAR(50)
+	userID int primary key,
+	userName NVARCHAR(50),
+	sex CHAR(1) CHECK (Sex IN ('M', 'F', 'U')),
+	age INT CHECK(Age > 15 AND Age < 80)
 );
-GO
-
-create table playlists
-(
-	ID int primary key,
-	name nvarchar(50)
-);
-go
-
-create table SongofPlaylists
-(
-	PlID int,
-	SongID int,
-	primary key(PlID,SongID)
-);
-go
-
-
-
-ALTER TABLE Genres ADD
-CONSTRAINT FK_GENRES_REGIONS
-FOREIGN KEY(RID) REFERENCES Regions(ID);
-
-ALTER TABLE Songs ADD
-CONSTRAINT FK_SONGS_GENRES
-FOREIGN KEY(GID) REFERENCES GENRES(ID);
-
-Alter table SongofPlaylists add
-constrant fk_SongofPlaylist_pl
-foreign key(PlID) references playlists(ID)
-
-Alter table SongofPlaylists add
-constrant fk_SongofPlaylist_song
-foreign key(SongID) references Songs(ID)
 
 GO
 
-USE MASTER
-DROP DATABASE CS486_Team12_DB;
+ALTER TABLE Playlists ADD
+CONSTRAINT FK_Playlists_userID FOREIGN KEY(userID) REFERENCES Users(UserID);
 
+Alter table SingerSongs add
+Constraint FK_SingerSong_SongID foreign key(SongID) references Songs(SongID)
 
-insert into Regions
-values 
-	(1,'Việt Nam'),
-	(2,' u Mỹ'),
-	(3,'Châu Á'),
-	(4,'Khác');
+Alter table SongsOfPlaylist add
+Constraint FK_SongsOfPlaylist_Playlists foreign key(playlistID) references Playlists(playlistID)
+go
 
+INSERT INTO Singers (singerID, singerName) VALUES
+(1, 'Maroon 5'),
+(2, 'Rihanna'),
+(3, 'Taylor Swift');
 
-insert into Genres
-values 
-	(1, 'Nhạc Trẻ', 1),
-	(2,'Trữ Tình',1),
-	(3,'Remix Việt',1),
-	(4,'Rap Việt',1),
-	(5,'Tiền Chiến',1),
-	(6,'Nhạc Trịnh',1),
-	(7,'Pop',2),
-	(8,'Rock',2),
-	(9,'Electronica',2),
-	(10,'R&B',2),
-	(11,'Blues',2),
-	(12,'Latin',2),
-	(13,'Nhạc Hàn',3),
-	(14,'Nhạc Hoa',3),
-	(15,'Nhạc Nhật',3),
-	(16,'Nhạc Thái',3),
-	(17,'Beat',4),
-	(18,'Không lời',4),
-	(19,'Thể loại khác',4),
-	(20,'Tui hát',4);
+insert into Songs (songID, songName, genre, region, dateAdded, streamCount) values
+(1, 'Sugar', 'Pop', 'Âu - Mỹ', '1-1-2000', 1000000),
+(2, 'Monster', 'R&B/Hip Hop/ Rap', 'Âu - Mỹ', '1-2-2000', 600000),
+(3, 'You belong with me', 'Pop',  'Âu - Mỹ', '1-1-2001', 600000);
 
+INSERT INTO SingerSongs(singerID, songID) VALUES
+(1, 1),
+(2, 2),
+(3, 3);
 
-CREATE TABLE Songs
-(
-    ID INT,
-    name NVARCHAR(100),
-    GID INT,
-    streamCount INT CHECK(streamCount >= 0),
-    dateAdded DATE,
-    PRIMARY KEY(ID, GID)
-);
+Insert into Users(userID, userName, Sex, Age)Values
+(1,'Nguyen Van A', 'M', 20),
+(2,'Nguyen Van B', 'F', 20);
 
+Insert into playlists(playlistID,playlistName, userID)values
+(1,'Playlist1',1),
+(2,'Playlist2',2),
+(3,'Playlist3',1),
+(4,'Playlist4',2);
 
-insert into Songs
-values
-	(1,'Nơi này có anh',1,200,'20/11/2011'),
-	(2,'Nắng ấm xa dần',1,200,'20/11/2011'),
-	(3,'Em của ngày hôm qua',1,200,'20/11/2011'),
-	(4,'TheNights',2,200,'20/11/2011');
+insert into SongsOfPlaylist(playlistID, songID, Favorites) values
+(1,1,1),
+(1,2,0),
+(2,1,1), 
+(2,2,0);
+GO
 
-insert into Singers
-values
-	(1,'Sơn Tùng'),
-	(2,'No name');
+CREATE OR ALTER procedure sp_selectMoiNhat(@playlistid INT, @genre NVARCHAR(50))
+AS
+BEGIN
+	SELECT s.songName, sng.singerName, s.streamCount, s.dateAdded, sp.favorites
+	FROM playlists p JOIN SongsOfPlaylist sp ON p.playlistID = sp.playlistID
+	JOIN Songs s ON sp.songID = s.songID JOIN SingerSongs ss ON s.songID = ss.songID
+	JOIN Singers sng ON ss.singerID = sng.singerID
+	WHERE p.playlistID = @playlistid AND s.genre = @genre
+END
+GO
 
-insert into SingerofSongs
-values
-	(1,1),
-	(2,1),
-	(3,1),
-	(4,2);
+CREATE OR ALTER PROCEDURE sp_updatePlaylist(@playlistid INT, @songid INT, @favorites BIT)
+AS
+BEGIN TRY
+	BEGIN TRANSACTION
+		if not exists(
+			select *
+			from playlists
+			where playlistID = @playlistid
+		)
+		BEGIN
+			--RAISERROR('There is no such playlistid', 16, 1);
+			-- ROLLBACK;
+			THROW 50001,'There is no such playlistid', 1;
+		END
 
-insert into playlists
-values
-	(1,'My playlist')
+		if not exists(
+			select *
+			from songs
+			where songID = @songid
+		)
+		BEGIN
+			--RAISERROR('There is no such songid', 16, 1);
+			-- ROLLBACK;
+			THROW 50002,'There is no such songid', 1;
+		END
 
-insert into SongofPlaylists
-values
-	(1,1);
+		if exists(
+			select *
+			from SongsOfPlaylist
+			where songID = @songid and playlistID = @playlistid
+		)
+		BEGIN
+			--RAISERROR('Song is already in playlist', 16, 1);
+			-- ROLLBACK;
+			THROW 50003,'Song is already in playlist', 1;
+		END
+
+		insert into SongsOfPlaylist(playlistID, songID, Favorites)
+		values (@playlistid, @songid, @favorites);
+	COMMIT TRANSACTION
+	RETURN 1;
+END TRY
+BEGIN CATCH
+	ROLLBACK;
+	--RAISERROR('Something is wrong', 16, 1);
+	THROW
+END CATCH
+GO
+
+Select * from playlists
+
+-- select * from SongsOfPlaylist where playlistID = 1
+-- exec sp_updatePlaylist 1, 3, 1
+
+-- delete from SongsOfPlaylist where songid = 3
+
+-- USE MASTER
+-- DROP DATABASE CS486_Team12_DB
