@@ -9,3 +9,14 @@ D:\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.csproj.CoreCompileInputs.c
 D:\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.exe
 D:\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.pdb
 D:\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.FormAddToPLayList.resources
+C:\Users\Sandra\Documents\GitHub\CS468-Final---Group-12\CS468\CS468\bin\Debug\CS468.exe.config
+C:\Users\Sandra\Documents\GitHub\CS468-Final---Group-12\CS468\CS468\bin\Debug\CS468.exe
+C:\Users\Sandra\Documents\GitHub\CS468-Final---Group-12\CS468\CS468\bin\Debug\CS468.pdb
+C:\Users\Sandra\Documents\GitHub\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.csprojAssemblyReference.cache
+C:\Users\Sandra\Documents\GitHub\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.Form1.resources
+C:\Users\Sandra\Documents\GitHub\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.FormAddToPLayList.resources
+C:\Users\Sandra\Documents\GitHub\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.Properties.Resources.resources
+C:\Users\Sandra\Documents\GitHub\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.csproj.GenerateResource.cache
+C:\Users\Sandra\Documents\GitHub\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.csproj.CoreCompileInputs.cache
+C:\Users\Sandra\Documents\GitHub\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.exe
+C:\Users\Sandra\Documents\GitHub\CS468-Final---Group-12\CS468\CS468\obj\Debug\CS468.pdb
